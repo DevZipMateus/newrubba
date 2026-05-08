@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Vitrine — New Rubba Implementos Rodoviários</title>
+  <meta name="description" content="Vitrine de produtos e serviços da New Rubba Implementos Rodoviários. Consulte nossos itens disponíveis.">
+  <link rel="icon" type="image/jpeg" href="logo.jpeg">
+  <link rel="apple-touch-icon" href="logo.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --navy: #0B1526;
+      --navy-light: #112240;
+      --yellow: #F5B800;
+      --yellow-dark: #D49F00;
+      --white: #FFFFFF;
+      --gray: #8892A4;
+      --border: rgba(255,255,255,0.07);
+      --font-heading: 'Oswald', sans-serif;
+      --font-body: 'Lato', sans-serif;
+      --radius: 4px;
+      --t: all 0.3s ease;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { height: 100%; overflow: hidden; }
+    body { font-family: var(--font-body); background: var(--white); overflow: hidden; height: 100vh; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── HEADER ─── */
+    #header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 10;
+      height: 80px;
+      background: rgba(11,21,38,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; padding: 0 24px; max-width: 1200px; margin: 0 auto; }
+    .header-logo { display: flex; align-items: center; }
+    .header-logo img { height: 58px; width: auto; object-fit: contain; }
+    .header-nav { display: flex; align-items: center; gap: 4px; }
+    .header-nav a {
+      font-family: var(--font-heading); font-size: 13px; font-weight: 500;
+      letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.7);
+      padding: 8px 14px; border-radius: var(--radius); transition: var(--t);
+    }
+    .header-nav a:hover, .header-nav a.active { color: var(--yellow); background: rgba(245,184,0,0.08); }
+    .header-nav a.nav-vitrine { color: var(--yellow); }
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+    .header-phone { display: flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-size: 13px; color: var(--yellow); font-weight: 600; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--yellow); color: var(--navy); font-family: var(--font-heading); font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; padding: 14px 28px; border-radius: var(--radius); border: 2px solid var(--yellow); transition: var(--t); }
+    .btn-primary:hover { background: var(--yellow-dark); border-color: var(--yellow-dark); transform: translateY(-2px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: var(--t); border-radius: 2px; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .mobile-menu { display: none; position: fixed; top: 80px; left: 0; width: 100%; background: var(--navy); border-top: 1px solid var(--border); z-index: 9; padding: 8px 0; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; font-family: var(--font-heading); font-size: 15px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 14px 24px; border-bottom: 1px solid var(--border); transition: var(--t); }
+    .mobile-menu a:hover { color: var(--yellow); padding-left: 32px; }
+    .mobile-menu-cta { padding: 16px 24px; }
+
+    /* ─── IFRAME ─── */
+    .vitrine-iframe {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 80px);
+      border: none;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .header-nav, .header-phone { display: none; }
+      .hamburger { display: flex; }
+      .header-actions .btn-primary { display: none; }
+      .vitrine-iframe { height: calc(100vh - 80px - 80px); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner">
+    <a href="index.html" class="header-logo" aria-label="New Rubba — página inicial">
+      <img src="logo-removebg-preview.png" alt="New Rubba Implementos Rodoviários">
+    </a>
+    <nav class="header-nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#servicos">Serviços</a>
+      <a href="index.html#galeria">Galeria</a>
+      <a href="index.html#contato">Contato</a>
+      <a href="vitrine.html" class="nav-vitrine">Vitrine</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+5511959940164" class="header-phone" aria-label="Ligar para a New Rubba">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i> (11) 95994-0164
+      </a>
+      <a href="https://wa.me/5511959940164" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+  <a href="index.html" onclick="closeMenu()">Início</a>
+  <a href="index.html#sobre" onclick="closeMenu()">Sobre</a>
+  <a href="index.html#servicos" onclick="closeMenu()">Serviços</a>
+  <a href="index.html#galeria" onclick="closeMenu()">Galeria</a>
+  <a href="index.html#contato" onclick="closeMenu()">Contato</a>
+  <a href="vitrine.html" onclick="closeMenu()" style="color:var(--yellow)">Vitrine</a>
+  <div class="mobile-menu-cta">
+    <a href="https://wa.me/5511959940164?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." class="btn-primary" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Falar pelo WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- VITRINE IFRAME -->
+<iframe
+  class="vitrine-iframe"
+  src="https://newrubbasider.egestor.com.br/vitrine/"
+  title="Vitrine New Rubba Implementos Rodoviários"
+  loading="lazy"
+  allowfullscreen>
+</iframe>
+
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+</script>
+</body>
+</html>

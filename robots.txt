@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /New rubba Implementos Rodoviar_midias/
+Disallow: /New rubba Implementos Rodoviar_depoimentos/
+
+Sitemap: https://www.newrubbaimplementos.com.br/sitemap.xml
