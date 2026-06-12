@@ -339,10 +339,23 @@
     .estrutura-hdr .section-label { justify-content: center; }
     .estrutura-hdr h2 { font-family: var(--font-heading); font-size: clamp(26px, 3.2vw, 40px); font-weight: 700; color: var(--navy); margin-bottom: 14px; }
     .estrutura-hdr p { color: #666; max-width: 520px; margin: 0 auto; font-size: 15px; }
-    .estrutura-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-    .estrutura-item--destaque { grid-column: 1 / -1; }
+    .estrutura-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; }
+    .estrutura-item--destaque { grid-column: 1 / -1; max-width: 70%; margin: 0 auto; }
+    .estrutura-item--destaque img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
     .estrutura-item { position: relative; border-radius: 4px; overflow: hidden; box-shadow: 0 4px 30px rgba(0,0,0,0.12); }
     .estrutura-item img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
+    .estrutura-grid > .estrutura-item { height: 100%; }
+    .estrutura-grid > .estrutura-item img { height: 100%; object-fit: cover; }
+    .estrutura-col-right { display: flex; flex-direction: column; gap: 32px; }
+    .estrutura-cta { background: var(--navy); border: 1px solid rgba(245,184,0,0.25); border-radius: 4px; padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; gap: 20px; flex: 1; }
+    .estrutura-cta-icon { width: 52px; height: 52px; background: rgba(245,184,0,0.12); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--yellow); font-size: 22px; }
+    .estrutura-cta h3 { font-family: var(--font-display); font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: 2px; text-transform: uppercase; line-height: 1.1; }
+    .estrutura-cta h3 span { color: var(--yellow); }
+    .estrutura-cta p { color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.65; }
+    .estrutura-cta-addr { display: flex; align-items: flex-start; gap: 10px; color: rgba(255,255,255,0.55); font-size: 13px; }
+    .estrutura-cta-addr i { color: var(--yellow); margin-top: 2px; flex-shrink: 0; }
+    .estrutura-cta .btn-primary { align-self: flex-start; }
+    @media (max-width: 768px) { .estrutura-grid { grid-template-columns: 1fr; } .estrutura-item--destaque { grid-column: 1; } }
     .estrutura-item:hover img { transform: scale(1.04); }
     .estrutura-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%); }
     .estrutura-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 28px; }
@@ -422,8 +435,10 @@
       <nav class="header-nav" aria-label="Navegação principal">
         <a href="#hero">Início</a>
         <a href="#sobre">Sobre</a>
+        <a href="#estrutura">Estrutura</a>
         <a href="#servicos">Serviços</a>
         <a href="#galeria">Galeria</a>
+        <a href="#depoimentos">Depoimentos</a>
         <a href="#contato">Contato</a>
         <a href="vitrine.html">Loja</a>
       </nav>
@@ -446,11 +461,12 @@
 <nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
   <a href="#hero" onclick="closeMenu()">Início</a>
   <a href="#sobre" onclick="closeMenu()">Sobre</a>
+  <a href="#estrutura" onclick="closeMenu()">Estrutura</a>
   <a href="#servicos" onclick="closeMenu()">Serviços</a>
   <a href="#galeria" onclick="closeMenu()">Galeria</a>
   <a href="#depoimentos" onclick="closeMenu()">Depoimentos</a>
   <a href="#contato" onclick="closeMenu()">Contato</a>
-  <a href="vitrine.html" onclick="closeMenu()">Loja</a>
+  <a href="vitrine.html" onclick="closeMenu()" style="color:var(--yellow)">Loja</a>
   <div class="mobile-menu-cta">
     <a href="https://wa.me/5511959940164?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." class="btn-primary" target="_blank" rel="noopener noreferrer">
       <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Falar pelo WhatsApp
@@ -467,7 +483,7 @@
   <div class="container">
     <div class="hero-content">
       <p class="hero-eyebrow">Desde 2018 — Diadema, SP</p>
-      <h1 class="hero-title">NEW RUBBA <span>SIDER</span></h1>
+      <h1 class="hero-title"><span>NEW</span> RUBBA SIDER</h1>
       <p class="hero-subtitle">
         Reforma e manutenção de implementos rodoviários com qualidade, agilidade e resultado real para transportadoras e frotistas.
       </p>
@@ -574,6 +590,60 @@
   </div>
 </section>
 
+<!-- ESTRUTURA -->
+<section id="estrutura">
+  <div class="container">
+    <div class="estrutura-hdr fade-in">
+      <p class="section-label">Nossa estrutura</p>
+      <h2>Pátio e Loja Física</h2>
+      <p>Infraestrutura completa — pátio amplo e loja física equipada para atender sua frota com agilidade, qualidade e todo o suporte que você precisa.</p>
+    </div>
+    <div class="estrutura-grid">
+      <div class="estrutura-item estrutura-item--destaque fade-in">
+        <img src="novas-midias/1290362576640323.jpeg" alt="Pátio New Rubba Sider — Diadema SP">
+        <div class="estrutura-overlay"></div>
+        <div class="estrutura-label">
+          <span class="estrutura-label-tag">Pátio</span>
+          <h3>Pátio New Rubba</h3>
+          <p>Estrutura ampla e organizada para atender implementos rodoviários com segurança e agilidade.</p>
+        </div>
+      </div>
+      <div class="estrutura-item fade-in d1">
+        <img src="novas-midias/1738814670877590.jpeg" alt="Interior da Loja New Rubba Sider — Diadema SP">
+        <div class="estrutura-overlay"></div>
+        <div class="estrutura-label">
+          <span class="estrutura-label-tag">Loja por Dentro</span>
+          <h3>Interior da Loja</h3>
+          <p>Ambiente organizado com variedade de produtos e peças para implementos rodoviários.</p>
+        </div>
+      </div>
+      <div class="estrutura-col-right fade-in d2">
+        <div class="estrutura-item">
+          <img src="novas-midias/2045983322666514.jpeg" alt="Frente da Loja New Rubba Sider — Diadema SP">
+          <div class="estrutura-overlay"></div>
+          <div class="estrutura-label">
+            <span class="estrutura-label-tag">Loja Física</span>
+            <h3>Frente da Loja</h3>
+            <p>Peças e acessórios para sider e carreta com atendimento rápido e presencial.</p>
+          </div>
+        </div>
+        <div class="estrutura-cta">
+          <div class="estrutura-cta-icon"><i class="fa-solid fa-store" aria-hidden="true"></i></div>
+          <h3>Visite nossa <span>loja</span></h3>
+          <p>Venha conhecer nosso espaço presencialmente. Temos tudo que sua frota precisa — peças, acessórios e atendimento especializado.</p>
+          <div class="estrutura-cta-addr">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            <span>Av. das Ameixeiras, 1076 — Jd. Maravilha<br>Diadema — SP, 09940-400</span>
+          </div>
+          <a href="https://maps.google.com/?q=-23.6646509,-46.5992735" class="btn-primary" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-map-pin" aria-hidden="true"></i> Como chegar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SERVIÇOS -->
 <section id="servicos">
   <div class="container">
@@ -632,55 +702,8 @@
       </div>
       <p>Cada imagem representa qualidade entregue e resultado real na operação do cliente.</p>
     </div>
-    <div class="galeria-grid">
-      <div class="galeria-item fade-in" onclick="openLb(0)" role="button" tabindex="0" aria-label="Ampliar imagem: serviço implementos rodoviários" onkeydown="if(event.key==='Enter')openLb(0)">
-        <img src="New rubba Implementos Rodoviar_midias/servico_implementos_rodoviarios_02.jpg"
-             alt="Serviço de implementos rodoviários — resultado profissional">
-        <div class="galeria-overlay">
-          <span class="galeria-tag">Execução</span>
-          <p class="galeria-caption">Serviço de implementos rodoviários com resultado profissional</p>
-        </div>
-      </div>
-      <div class="galeria-item fade-in d1" onclick="openLb(1)" role="button" tabindex="0" aria-label="Ampliar imagem: alteamento de baú de alumínio" onkeydown="if(event.key==='Enter')openLb(1)">
-        <img src="New rubba Implementos Rodoviar_midias/alteamento_de_bau_de_aluminio_mais_volume_de_carga_mais_produtividade_na_estrada_.jpg"
-             alt="Alteamento de baú de alumínio — mais volume de carga e produtividade na estrada">
-        <div class="galeria-overlay">
-          <span class="galeria-tag">Adaptação</span>
-          <p class="galeria-caption">Alteamento de baú de alumínio — mais volume de carga e produtividade</p>
-        </div>
-      </div>
-      <div class="galeria-item fade-in d2" onclick="openLb(2)" role="button" tabindex="0" aria-label="Ampliar imagem: renovação completa de sider" onkeydown="if(event.key==='Enter')openLb(2)">
-        <img src="New rubba Implementos Rodoviar_midias/renovacao_completa_de_sider_troca_de_lonas_laterais_com_impressao_digital_e_pintura_de_alto_padrao_.jpg"
-             alt="Renovação completa de sider com troca de lonas laterais e pintura de alto padrão">
-        <div class="galeria-overlay">
-          <span class="galeria-tag">Reforma</span>
-          <p class="galeria-caption">Renovação completa de sider com pintura de alto padrão</p>
-        </div>
-      </div>
-      <div class="galeria-item fade-in d3" onclick="openLb(3)" role="button" tabindex="0" aria-label="Ampliar imagem: conversão para sistema roll-up" onkeydown="if(event.key==='Enter')openLb(3)">
-        <img src="New rubba Implementos Rodoviar_midias/_conversao_de_porta_convencional_para_sistema_roll_up_com_adaptacao_de_travas_de_seguranca_.jpg"
-             alt="Conversão de porta convencional para sistema roll-up com travas de segurança">
-        <div class="galeria-overlay">
-          <span class="galeria-tag">Conversão</span>
-          <p class="galeria-caption">Conversão para sistema roll-up com travas de segurança</p>
-        </div>
-      </div>
-      <div class="galeria-item fade-in d4" onclick="openLb(4)" role="button" tabindex="0" aria-label="Ampliar imagem: substituição do jogo de portas" onkeydown="if(event.key==='Enter')openLb(4)">
-        <img src="New rubba Implementos Rodoviar_midias/substituicao_do_jogo_de_portas_com_pintura_de_alto_padrao.jpg"
-             alt="Substituição do jogo de portas com pintura de alto padrão">
-        <div class="galeria-overlay">
-          <span class="galeria-tag">Reforma</span>
-          <p class="galeria-caption">Substituição do jogo de portas com pintura de alto padrão</p>
-        </div>
-      </div>
-      <div class="galeria-item fade-in d5" onclick="openLb(5)" role="button" tabindex="0" aria-label="Ampliar imagem: serviço implementos rodoviários" onkeydown="if(event.key==='Enter')openLb(5)">
-        <img src="New rubba Implementos Rodoviar_midias/servico_implementos_rodoviarios_01.jpg"
-             alt="Serviço de implementos rodoviários — alta qualidade de execução">
-        <div class="galeria-overlay">
-          <span class="galeria-tag">Execução</span>
-          <p class="galeria-caption">Serviço de implementos rodoviários com alta qualidade</p>
-        </div>
-      </div>
+    <div style="text-align:center; padding: 60px 0; color: rgba(255,255,255,0.3); font-family: var(--font-heading); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; border: 1px dashed rgba(255,255,255,0.1); border-radius: 4px;">
+      Novas fotos em breve
     </div>
   </div>
 </section>
@@ -952,46 +975,6 @@
   </div>
 </div>
 
-<!-- ESTRUTURA -->
-<section id="estrutura">
-  <div class="container">
-    <div class="estrutura-hdr fade-in">
-      <p class="section-label">Nossa estrutura</p>
-      <h2>Pátio e Loja Física</h2>
-      <p>Infraestrutura completa — pátio amplo e loja física equipada para atender sua frota com agilidade, qualidade e todo o suporte que você precisa.</p>
-    </div>
-    <div class="estrutura-grid">
-      <div class="estrutura-item estrutura-item--destaque fade-in">
-        <img src="novas-midias/2045983322666514.jpeg" alt="Loja Física New Rubba Sider — Diadema SP">
-        <div class="estrutura-overlay"></div>
-        <div class="estrutura-label">
-          <span class="estrutura-label-tag">Loja Física</span>
-          <h3>Loja Física</h3>
-          <p>Peças e acessórios para sider e carreta com atendimento rápido e presencial.</p>
-        </div>
-      </div>
-      <div class="estrutura-item fade-in d1">
-        <img src="novas-midias/1290362576640323.jpeg" alt="Pátio New Rubba Sider — Diadema SP">
-        <div class="estrutura-overlay"></div>
-        <div class="estrutura-label">
-          <span class="estrutura-label-tag">Pátio</span>
-          <h3>Espaço Operacional</h3>
-          <p>Estrutura preparada para execução de serviços em implementos rodoviários.</p>
-        </div>
-      </div>
-      <div class="estrutura-item fade-in d2">
-        <img src="novas-midias/1738814670877590.jpeg" alt="Estrutura New Rubba Sider — Diadema SP">
-        <div class="estrutura-overlay"></div>
-        <div class="estrutura-label">
-          <span class="estrutura-label-tag">Oficina</span>
-          <h3>Área de Serviços</h3>
-          <p>Ambiente equipado para manutenção e montagem de implementos com precisão.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTATO -->
 <section id="contato">
   <div class="container">
@@ -1066,6 +1049,7 @@
         <nav class="footer-links" aria-label="Links do rodapé">
           <a href="#hero">Início</a>
           <a href="#sobre">Sobre nós</a>
+          <a href="#estrutura">Nossa Estrutura</a>
           <a href="#servicos">Serviços</a>
           <a href="#galeria">Galeria</a>
           <a href="#depoimentos">Depoimentos</a>
@@ -1143,14 +1127,7 @@
   // Lightbox
   const lb = document.getElementById('lb');
   const lbImg = document.getElementById('lbImg');
-  const lbImages = [
-    { src: 'New rubba Implementos Rodoviar_midias/servico_implementos_rodoviarios_02.jpg', alt: 'Serviço de implementos rodoviários com resultado profissional' },
-    { src: 'New rubba Implementos Rodoviar_midias/alteamento_de_bau_de_aluminio_mais_volume_de_carga_mais_produtividade_na_estrada_.jpg', alt: 'Alteamento de baú de alumínio' },
-    { src: 'New rubba Implementos Rodoviar_midias/renovacao_completa_de_sider_troca_de_lonas_laterais_com_impressao_digital_e_pintura_de_alto_padrao_.jpg', alt: 'Renovação completa de sider' },
-    { src: 'New rubba Implementos Rodoviar_midias/_conversao_de_porta_convencional_para_sistema_roll_up_com_adaptacao_de_travas_de_seguranca_.jpg', alt: 'Conversão para sistema roll-up' },
-    { src: 'New rubba Implementos Rodoviar_midias/substituicao_do_jogo_de_portas_com_pintura_de_alto_padrao.jpg', alt: 'Substituição do jogo de portas com pintura de alto padrão' },
-    { src: 'New rubba Implementos Rodoviar_midias/servico_implementos_rodoviarios_01.jpg', alt: 'Serviço de implementos rodoviários com alta qualidade' },
-  ];
+  const lbImages = [];
   let lbIndex = 0;
   function openLb(idx) {
     lbIndex = idx;
